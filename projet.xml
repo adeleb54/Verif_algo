@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE nta PUBLIC '-//Uppaal Team//DTD Flat System 1.1//EN' 'http://www.it.uu.se/research/group/darts/uppaal/flat-1_2.dtd'>
+<nta>
+	<declaration>// Place global declarations here.</declaration>
+	<template>
+		<name x="5" y="5">PlateauJoueur</name>
+		<declaration>// Place local declarations here.</declaration>
+		<location id="id0" x="323" y="0">
+		</location>
+		<location id="id1" x="323" y="-76">
+		</location>
+		<location id="id2" x="161" y="-76">
+		</location>
+		<location id="id3" x="0" y="-76">
+		</location>
+		<location id="id4" x="161" y="0">
+		</location>
+		<location id="id5" x="0" y="0">
+		</location>
+		<init ref="id5"/>
+		<transition>
+			<source ref="id2"/>
+			<target ref="id2"/>
+			<label kind="comments" x="102" y="-127">Bdf/Bouclier/vol</label>
+			<nail x="144" y="-110"/>
+			<nail x="178" y="-110"/>
+		</transition>
+		<transition>
+			<source ref="id3"/>
+			<target ref="id3"/>
+			<label kind="comments" x="-59" y="-127">Bdf/Bouclier/vol</label>
+			<nail x="-25" y="-110"/>
+			<nail x="17" y="-110"/>
+		</transition>
+		<transition>
+			<source ref="id5"/>
+			<target ref="id5"/>
+			<label kind="comments" x="-42" y="51">Bdf/Bouclier</label>
+			<nail x="-17" y="51"/>
+			<nail x="17" y="51"/>
+		</transition>
+		<transition>
+			<source ref="id4"/>
+			<target ref="id4"/>
+			<label kind="comments" x="127" y="51">Bdf/Bouclier</label>
+			<nail x="144" y="51"/>
+			<nail x="187" y="51"/>
+		</transition>
+		<transition>
+			<source ref="id1"/>
+			<target ref="id0"/>
+			<nail x="340" y="-34"/>
+		</transition>
+		<transition>
+			<source ref="id2"/>
+			<target ref="id4"/>
+			<nail x="178" y="-34"/>
+		</transition>
+		<transition>
+			<source ref="id3"/>
+			<target ref="id5"/>
+			<nail x="8" y="-34"/>
+		</transition>
+		<transition>
+			<source ref="id2"/>
+			<target ref="id3"/>
+			<label kind="comments" x="42" y="-59">Dep gauche</label>
+			<nail x="76" y="-59"/>
+		</transition>
+		<transition>
+			<source ref="id1"/>
+			<target ref="id2"/>
+			<label kind="comments" x="204" y="-59">Dep gauche</label>
+			<nail x="238" y="-59"/>
+		</transition>
+		<transition>
+			<source ref="id0"/>
+			<target ref="id4"/>
+			<label kind="comments" x="212" y="17">Dep gauche</label>
+			<nail x="246" y="17"/>
+		</transition>
+		<transition>
+			<source ref="id4"/>
+			<target ref="id5"/>
+			<label kind="comments" x="34" y="17">Dep gauche</label>
+			<nail x="68" y="17"/>
+		</transition>
+		<transition>
+			<source ref="id1"/>
+			<target ref="id1"/>
+			<label kind="comments" x="331" y="-119">Bdf/Bouclier/vol</label>
+			<nail x="374" y="-76"/>
+			<nail x="374" y="-102"/>
+		</transition>
+		<transition>
+			<source ref="id0"/>
+			<target ref="id0"/>
+			<label kind="comments" x="340" y="25">Bdf/Bouclier</label>
+			<nail x="374" y="0"/>
+			<nail x="374" y="25"/>
+		</transition>
+		<transition>
+			<source ref="id1"/>
+			<target ref="id5"/>
+			<label kind="comments" x="-119" y="-178">Joueur projeté</label>
+			<nail x="323" y="-153"/>
+			<nail x="-178" y="-153"/>
+			<nail x="-178" y="0"/>
+		</transition>
+		<transition>
+			<source ref="id0"/>
+			<target ref="id5"/>
+			<label kind="comments" x="-85" y="127">Joueur projeté</label>
+			<nail x="331" y="119"/>
+			<nail x="-178" y="119"/>
+			<nail x="-178" y="0"/>
+		</transition>
+		<transition>
+			<source ref="id0"/>
+			<target ref="id1"/>
+		</transition>
+		<transition>
+			<source ref="id4"/>
+			<target ref="id2"/>
+		</transition>
+		<transition>
+			<source ref="id4"/>
+			<target ref="id0"/>
+			<label kind="comments" x="204" y="-17">Dep droite</label>
+		</transition>
+		<transition>
+			<source ref="id2"/>
+			<target ref="id1"/>
+			<label kind="comments" x="204" y="-93">Dep droite</label>
+		</transition>
+		<transition>
+			<source ref="id3"/>
+			<target ref="id2"/>
+			<label kind="comments" x="42" y="-93">Dep droite</label>
+		</transition>
+		<transition>
+			<source ref="id5"/>
+			<target ref="id3"/>
+			<label kind="comments" x="-68" y="-42">Saut</label>
+			<nail x="-25" y="-34"/>
+		</transition>
+		<transition>
+			<source ref="id5"/>
+			<target ref="id4"/>
+			<label kind="comments" x="34" y="-17">Dep droite</label>
+		</transition>
+	</template>
+	<template>
+		<name>PlateauBouleDeFeuJoueur</name>
+		<location id="id6" x="212" y="-59">
+		</location>
+		<location id="id7" x="127" y="-59">
+		</location>
+		<location id="id8" x="212" y="42">
+		</location>
+		<location id="id9" x="127" y="42">
+		</location>
+		<location id="id10" x="42" y="42">
+		</location>
+		<location id="id11" x="42" y="-59">
+		</location>
+		<location id="id12" x="-25" y="-8">
+		</location>
+		<init ref="id12"/>
+		<transition>
+			<source ref="id7"/>
+			<target ref="id6"/>
+		</transition>
+		<transition>
+			<source ref="id11"/>
+			<target ref="id7"/>
+		</transition>
+		<transition>
+			<source ref="id9"/>
+			<target ref="id8"/>
+		</transition>
+		<transition>
+			<source ref="id10"/>
+			<target ref="id9"/>
+		</transition>
+		<transition>
+			<source ref="id12"/>
+			<target ref="id10"/>
+		</transition>
+		<transition>
+			<source ref="id12"/>
+			<target ref="id11"/>
+		</transition>
+	</template>
+	<template>
+		<name>PlateauBouleDeFeuBoss</name>
+		<location id="id13" x="127" y="-51">
+		</location>
+		<location id="id14" x="51" y="-51">
+		</location>
+		<location id="id15" x="127" y="42">
+		</location>
+		<location id="id16" x="51" y="42">
+		</location>
+		<location id="id17" x="-25" y="42">
+		</location>
+		<location id="id18" x="-25" y="-51">
+		</location>
+		<location id="id19" x="-127" y="-8">
+		</location>
+		<init ref="id19"/>
+		<transition>
+			<source ref="id19"/>
+			<target ref="id19"/>
+			<label kind="comments" x="-221" y="-42">Stand By</label>
+			<nail x="-187" y="8"/>
+			<nail x="-187" y="-25"/>
+		</transition>
+		<transition>
+			<source ref="id15"/>
+			<target ref="id19"/>
+			<label kind="comments" x="-127" y="85">Boule de feu détruite (entité touché)</label>
+			<nail x="127" y="76"/>
+			<nail x="-127" y="76"/>
+		</transition>
+		<transition>
+			<source ref="id16"/>
+			<target ref="id19"/>
+			<nail x="51" y="76"/>
+			<nail x="-127" y="76"/>
+		</transition>
+		<transition>
+			<source ref="id17"/>
+			<target ref="id19"/>
+			<nail x="-25" y="76"/>
+			<nail x="-127" y="76"/>
+		</transition>
+		<transition>
+			<source ref="id13"/>
+			<target ref="id19"/>
+			<label kind="comments" x="-127" y="-110">Boule de feu détruite (entité touché)</label>
+			<nail x="127" y="-85"/>
+			<nail x="-127" y="-85"/>
+		</transition>
+		<transition>
+			<source ref="id14"/>
+			<target ref="id19"/>
+			<nail x="51" y="-68"/>
+			<nail x="51" y="-85"/>
+			<nail x="-127" y="-85"/>
+		</transition>
+		<transition>
+			<source ref="id18"/>
+			<target ref="id19"/>
+			<nail x="-25" y="-85"/>
+			<nail x="-127" y="-85"/>
+		</transition>
+		<transition>
+			<source ref="id14"/>
+			<target ref="id13"/>
+			<label kind="comments" x="59" y="-42">Avance</label>
+		</transition>
+		<transition>
+			<source ref="id18"/>
+			<target ref="id14"/>
+			<label kind="comments" x="-17" y="-42">Avance</label>
+		</transition>
+		<transition>
+			<source ref="id16"/>
+			<target ref="id15"/>
+			<label kind="comments" x="59" y="17">Avance</label>
+		</transition>
+		<transition>
+			<source ref="id17"/>
+			<target ref="id16"/>
+			<label kind="comments" x="-17" y="17">Avance</label>
+		</transition>
+		<transition>
+			<source ref="id19"/>
+			<target ref="id17"/>
+			<label kind="comments" x="-102" y="-17">Bdf lancée</label>
+		</transition>
+		<transition>
+			<source ref="id19"/>
+			<target ref="id18"/>
+		</transition>
+	</template>
+	<template>
+		<name>GestionJoueur</name>
+		<location id="id20" x="59" y="76">
+			<label kind="comments" x="17" y="93">Corps-à-Corps</label>
+			<urgent/>
+		</location>
+		<location id="id21" x="-51" y="76">
+			<label kind="comments" x="-85" y="93">Pouvoir</label>
+			<urgent/>
+		</location>
+		<location id="id22" x="-102" y="0">
+			<label kind="comments" x="-136" y="-34">Gauche</label>
+			<urgent/>
+		</location>
+		<location id="id23" x="110" y="0">
+			<label kind="comments" x="93" y="-34">Droite</label>
+			<urgent/>
+		</location>
+		<location id="id24" x="0" y="-76">
+			<label kind="comments" x="17" y="-93">Saut</label>
+			<urgent/>
+		</location>
+		<location id="id25" x="0" y="0">
+		</location>
+		<init ref="id25"/>
+		<transition>
+			<source ref="id20"/>
+			<target ref="id25"/>
+			<nail x="42" y="25"/>
+		</transition>
+		<transition>
+			<source ref="id21"/>
+			<target ref="id25"/>
+			<nail x="-8" y="42"/>
+		</transition>
+		<transition>
+			<source ref="id25"/>
+			<target ref="id20"/>
+		</transition>
+		<transition>
+			<source ref="id25"/>
+			<target ref="id21"/>
+		</transition>
+		<transition>
+			<source ref="id22"/>
+			<target ref="id25"/>
+			<nail x="-42" y="-8"/>
+		</transition>
+		<transition>
+			<source ref="id24"/>
+			<target ref="id25"/>
+			<nail x="17" y="-34"/>
+		</transition>
+		<transition>
+			<source ref="id23"/>
+			<target ref="id25"/>
+			<nail x="51" y="-8"/>
+		</transition>
+		<transition>
+			<source ref="id25"/>
+			<target ref="id22"/>
+		</transition>
+		<transition>
+			<source ref="id25"/>
+			<target ref="id23"/>
+		</transition>
+		<transition>
+			<source ref="id25"/>
+			<target ref="id24"/>
+		</transition>
+	</template>
+	<system>// Place template instantiations here.
+Process = Template();
+// List one or more processes to be composed into a system.
+system Process;
+    </system>
+	<queries>
+		<query>
+			<formula></formula>
+			<comment></comment>
+		</query>
+	</queries>
+</nta>

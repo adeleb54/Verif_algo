@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE nta PUBLIC '-//Uppaal Team//DTD Flat System 1.1//EN' 'http://www.it.uu.se/research/group/darts/uppaal/flat-1_2.dtd'>
+<nta>
+	<declaration>// Place global declarations here.
+chan pressA, pressB, pressC;
+int[0,3] nbErreur;</declaration>
+	<template>
+		<name x="5" y="5">Digicode</name>
+		<declaration>// Place local declarations here.</declaration>
+		<location id="id0" x="-102" y="68">
+		</location>
+		<location id="id1" x="-102" y="-34">
+		</location>
+		<location id="id2" x="0" y="-34">
+		</location>
+		<location id="id3" x="187" y="-34">
+			<name x="177" y="-68">ouvert</name>
+		</location>
+		<location id="id4" x="-425" y="-8">
+		</location>
+		<location id="id5" x="-425" y="-8">
+		</location>
+		<location id="id6" x="-425" y="-8">
+			<name x="-435" y="-42">bloque</name>
+		</location>
+		<location id="id7" x="-425" y="-8">
+		</location>
+		<init ref="id0"/>
+		<transition>
+			<source ref="id1"/>
+			<target ref="id5"/>
+			<label kind="synchronisation" x="-297" y="-51">nbErreur==3</label>
+		</transition>
+		<transition>
+			<source ref="id0"/>
+			<target ref="id4"/>
+			<label kind="synchronisation" x="-407" y="13">nbErreur==3</label>
+		</transition>
+		<transition>
+			<source ref="id1"/>
+			<target ref="id1"/>
+			<label kind="synchronisation" x="-212" y="-127">pressB?</label>
+			<label kind="assignment" x="-255" y="-144">nbErreur = nbErreur + 1</label>
+			<nail x="-127" y="-110"/>
+			<nail x="-187" y="-93"/>
+		</transition>
+		<transition>
+			<source ref="id0"/>
+			<target ref="id0"/>
+			<label kind="guard" x="-106" y="59">nbErreur&lt;3</label>
+			<label kind="synchronisation" x="-119" y="119">pressC?</label>
+			<label kind="assignment" x="-161" y="136">nbErreur = nbErreur + 1</label>
+			<nail x="-110" y="119"/>
+			<nail x="-85" y="119"/>
+		</transition>
+		<transition>
+			<source ref="id0"/>
+			<target ref="id0"/>
+			<label kind="guard" x="-123" y="55">nbErreur&lt;3</label>
+			<label kind="synchronisation" x="-212" y="85">pressA?</label>
+			<label kind="assignment" x="-306" y="59">nbErreur = nbErreur + 1</label>
+			<nail x="-161" y="85"/>
+			<nail x="-144" y="110"/>
+		</transition>
+		<transition>
+			<source ref="id2"/>
+			<target ref="id0"/>
+			<label kind="guard" x="-84" y="17">nbErreur&lt;3</label>
+			<label kind="synchronisation" x="-51" y="42">pressB?</label>
+			<label kind="assignment" x="-8" y="-8">nbErreur = nbErreur + 1</label>
+			<nail x="-25" y="34"/>
+		</transition>
+		<transition>
+			<source ref="id2"/>
+			<target ref="id0"/>
+			<label kind="guard" x="-84" y="34">nbErreur&lt;3</label>
+			<label kind="synchronisation" x="-51" y="68">pressA?</label>
+			<label kind="assignment" x="51" y="42">nbErreur = nbErreur + 1</label>
+			<nail x="34" y="68"/>
+		</transition>
+		<transition>
+			<source ref="id1"/>
+			<target ref="id0"/>
+			<label kind="guard" x="-119" y="-42">nbErreur&lt;3</label>
+			<label kind="synchronisation" x="-187" y="0">pressC?</label>
+			<label kind="assignment" x="-289" y="-17">nbErreur = nbErreur + 1</label>
+			<nail x="-136" y="17"/>
+		</transition>
+		<transition>
+			<source ref="id2"/>
+			<target ref="id3"/>
+			<label kind="synchronisation" x="68" y="-51">pressC?</label>
+			<label kind="assignment" x="18" y="-34">nbErreur&lt;3</label>
+		</transition>
+		<transition>
+			<source ref="id1"/>
+			<target ref="id2"/>
+			<label kind="guard" x="-84" y="-68">nbErreur&lt;3</label>
+			<label kind="synchronisation" x="-76" y="-51">pressA?</label>
+		</transition>
+		<transition>
+			<source ref="id0"/>
+			<target ref="id1"/>
+			<label kind="guard" x="-102" y="-17">nbErreur&lt;3</label>
+			<label kind="synchronisation" x="-102" y="0">pressB?</label>
+		</transition>
+	</template>
+	<template>
+		<name>Utilisateur</name>
+		<location id="id8" x="0" y="0">
+		</location>
+		<init ref="id8"/>
+		<transition>
+			<source ref="id8"/>
+			<target ref="id8"/>
+			<label kind="synchronisation" x="-76" y="34">pressC!</label>
+			<nail x="-34" y="17"/>
+			<nail x="-17" y="42"/>
+		</transition>
+		<transition>
+			<source ref="id8"/>
+			<target ref="id8"/>
+			<label kind="synchronisation" x="59" y="-8">pressB!</label>
+			<nail x="51" y="-8"/>
+			<nail x="51" y="17"/>
+		</transition>
+		<transition>
+			<source ref="id8"/>
+			<target ref="id8"/>
+			<label kind="synchronisation" x="-8" y="-68">pressA!</label>
+			<nail x="0" y="-51"/>
+			<nail x="25" y="-51"/>
+		</transition>
+	</template>
+	<system>system Digicode, Utilisateur;
+    </system>
+	<queries>
+		<query>
+			<formula>E&lt;&gt; Digicode.ouvert</formula>
+			<comment></comment>
+		</query>
+	</queries>
+</nta>
