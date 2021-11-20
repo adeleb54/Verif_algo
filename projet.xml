@@ -13,6 +13,8 @@ int [1, 3] pouvoirJoueur; // BdF = 1, bouclier = 2, vol = 3
 bool pouvoirActif;
 bool bouclierActif;
 int [1, 6] positionJoueur;
+int [1, 6] positionBouleBoss;
+int [1, 6] positionBouleJoueur;
 
 //Horloges du système
 clock bdfJoueur;
@@ -33,6 +35,10 @@ chan deplGaucheBoule;
 chan deplDroiteBoule;
 
 void lanceBouleDeFeu(int pos){
+}
+
+void degatsBoss() {
+
 }</declaration>
 	<template>
 		<name x="5" y="5">PlateauJoueur</name>
@@ -236,6 +242,8 @@ tpsSaut = 0</label>
 	</template>
 	<template>
 		<name>PlateauBouleDeFeuJoueur</name>
+		<declaration>
+clock t;</declaration>
 		<location id="id6" x="1411" y="-161">
 			<label kind="invariant" x="1394" y="-144">t&lt;=2</label>
 			<label kind="comments" x="1419" y="-186">6</label>
@@ -284,7 +292,7 @@ positionBouleBoss = 0</label>
 			<source ref="id6"/>
 			<target ref="id13"/>
 			<label kind="guard" x="1419" y="-102">t == 2</label>
-			<label kind="assignment" x="1419" y="-85">degatBoss()</label>
+			<label kind="assignment" x="1419" y="-85">degatsBoss()</label>
 			<nail x="1411" y="-8"/>
 		</transition>
 		<transition>
@@ -304,7 +312,7 @@ positionBouleBoss == positionBouleJoueur</label>
 		<transition>
 			<source ref="id10"/>
 			<target ref="id13"/>
-			<label kind="guard" x="-34" y="51">t==2
+			<label kind="guard" x="-42" y="51">t==2 &amp;&amp;
 positionBouleBoss == positionBouleJoueur</label>
 		</transition>
 		<transition>
@@ -408,7 +416,8 @@ t=0</label>
 	<template>
 		<name>PlateauBouleDeFeuBoss</name>
 		<declaration>
-int[0,2] typeAttaque; // 0 == Cac; 1 == Boule de Feu en haut; 2 == Boule de Feu en Bas</declaration>
+int[0,2] typeAttaque; // 0 == Cac; 1 == Boule de Feu en haut; 2 == Boule de Feu en Bas
+clock t;</declaration>
 		<location id="id14" x="-1215" y="-51">
 			<label kind="invariant" x="-1232" y="-34">t&lt;=2</label>
 			<label kind="comments" x="-1240" y="-76">4</label>
@@ -562,40 +571,40 @@ t=0</label>
 	</template>
 	<template>
 		<name>GestionJoueur</name>
-		<location id="id20" x="0" y="0">
+		<location id="id23" x="0" y="0">
 		</location>
-		<init ref="id20"/>
+		<init ref="id23"/>
 		<transition>
-			<source ref="id20"/>
-			<target ref="id20"/>
+			<source ref="id23"/>
+			<target ref="id23"/>
 			<label kind="synchronisation" x="8" y="51">attaqueCaCJoueur!</label>
 			<nail x="51" y="42"/>
 			<nail x="34" y="51"/>
 		</transition>
 		<transition>
-			<source ref="id20"/>
-			<target ref="id20"/>
+			<source ref="id23"/>
+			<target ref="id23"/>
 			<label kind="synchronisation" x="-153" y="51">utilisationPouvoirJoueur!</label>
 			<nail x="-51" y="42"/>
 			<nail x="-34" y="51"/>
 		</transition>
 		<transition>
-			<source ref="id20"/>
-			<target ref="id20"/>
+			<source ref="id23"/>
+			<target ref="id23"/>
 			<label kind="synchronisation" x="85" y="-25">deplDroiteJoueur!</label>
 			<nail x="76" y="-25"/>
 			<nail x="76" y="0"/>
 		</transition>
 		<transition>
-			<source ref="id20"/>
-			<target ref="id20"/>
+			<source ref="id23"/>
+			<target ref="id23"/>
 			<label kind="synchronisation" x="-17" y="-76">saut!</label>
 			<nail x="-25" y="-42"/>
 			<nail x="17" y="-42"/>
 		</transition>
 		<transition>
-			<source ref="id20"/>
-			<target ref="id20"/>
+			<source ref="id23"/>
+			<target ref="id23"/>
 			<label kind="synchronisation" x="-221" y="-17">deplGaucheJoueur!</label>
 			<nail x="-76" y="-25"/>
 			<nail x="-76" y="0"/>
