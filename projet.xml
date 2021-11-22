@@ -614,6 +614,16 @@ clock t;</declaration>
 		</location>
 		<init ref="id21"/>
 		<transition>
+			<source ref="id21"/>
+			<target ref="id21"/>
+			<label kind="guard" x="25" y="-8">t&gt;=5 &amp;&amp; typeAttaque == 0 &amp;&amp; ptVieBoss&gt;0 &amp;&amp; 
+(positionJoueur != 3 &amp;&amp; positionJoueur != 6)</label>
+			<label kind="assignment" x="25" y="25">t=0,
+typeAttaque=1</label>
+			<nail x="17" y="-8"/>
+			<nail x="17" y="68"/>
+		</transition>
+		<transition>
 			<source ref="id17"/>
 			<target ref="id21"/>
 			<label kind="guard" x="-1198" y="297">t==2 &amp;&amp;
@@ -706,12 +716,12 @@ positionJoueur == positionBouleBoss)</label>
 		<transition>
 			<source ref="id21"/>
 			<target ref="id21"/>
-			<label kind="guard" x="-59" y="-25">t==5 &amp;&amp; typeAttaque == 0 &amp;&amp; ptVieBoss&gt;0</label>
-			<label kind="synchronisation" x="-59" y="-42">attaqueCaCBoss!</label>
-			<label kind="assignment" x="-59" y="-8">typeAttaque = 1,
+			<label kind="guard" x="25" y="-85">t&gt;=5 &amp;&amp; typeAttaque == 0 &amp;&amp; ptVieBoss&gt;0</label>
+			<label kind="synchronisation" x="25" y="-102">attaqueCaCBoss!</label>
+			<label kind="assignment" x="25" y="-68">typeAttaque = 1,
 t=0</label>
-			<nail x="-68" y="25"/>
-			<nail x="-68" y="-34"/>
+			<nail x="17" y="-34"/>
+			<nail x="17" y="-102"/>
 		</transition>
 		<transition>
 			<source ref="id16"/>
