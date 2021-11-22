@@ -43,8 +43,9 @@ void degatsBoss() {
 }*/
 
 void applicationDegats() {
-    if (positionBouleBoss == positionJoueur) {
+    if (positionBouleBoss == positionJoueur &amp;&amp; (pouvoirJoueur!=2 || !pouvoirActif || !bouclierActif)) {
         ptVieJoueur--;
+        pouvoirActif = false;
     }
 }
 </declaration>
