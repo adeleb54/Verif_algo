@@ -16,12 +16,6 @@ int [0, 6] positionBouleBoss;
 int [0, 6] positionBouleJoueur;
 
 //Horloges du système
-clock bdfJoueur;
-clock bdfBoss;
-clock attaqueCaCJoueurClock;
-clock attaqueCaCBossClock;
-clock attaqueBdFJoueur;
-clock attaqueBdFBoss;
 clock deplacementJoueur;
 clock tempsPouvoir;
 clock tempsCaCJoueur;
@@ -33,8 +27,6 @@ chan saut;
 chan utilisationPouvoirJoueur;
 chan attaqueCaCJoueur;
 chan attaqueCaCBoss;
-chan deplGaucheBoule;
-chan deplDroiteBoule;
 chan finDuJeu;
 
 /*void lanceBouleDeFeu(int pos){
