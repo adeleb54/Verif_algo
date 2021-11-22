@@ -34,12 +34,12 @@ chan attaqueCaCBoss;
 chan deplGaucheBoule;
 chan deplDroiteBoule;
 
-void lanceBouleDeFeu(int pos){
+/*void lanceBouleDeFeu(int pos){
 }
 
 void degatsBoss() {
 
-}</declaration>
+}*/</declaration>
 	<template>
 		<name x="5" y="5">PlateauJoueur</name>
 		<declaration>// Place local declarations here.
@@ -48,13 +48,8 @@ clock tpsSaut;
 
 void pouvoir(){
     if(pouvoirActif){
-        //Si le pouvoir utilisé est une boule de feu
-        if(pouvoirJoueur== 1){
-            lanceBouleDeFeu(positionJoueur);
-        }
-
         //Si le pouvoir utilisé est le bouclier
-        else if(pouvoirJoueur== 2){
+        if(pouvoirJoueur== 2){
             if(bouclierActif){
                 bouclierActif = false;
             }
@@ -96,6 +91,22 @@ void pouvoir(){
 			<label kind="comments" x="-93" y="153">1</label>
 		</location>
 		<init ref="id5"/>
+		<transition>
+			<source ref="id1"/>
+			<target ref="id1"/>
+			<label kind="synchronisation" x="756" y="-161">attaqueCaCJoueur?</label>
+			<label kind="assignment" x="773" y="-144">ptVieBoss--</label>
+			<nail x="756" y="-136"/>
+			<nail x="782" y="-127"/>
+		</transition>
+		<transition>
+			<source ref="id0"/>
+			<target ref="id0"/>
+			<label kind="synchronisation" x="799" y="93">attaqueCaCJoueur?</label>
+			<label kind="assignment" x="799" y="110">ptVieBoss--</label>
+			<nail x="782" y="76"/>
+			<nail x="799" y="102"/>
+		</transition>
 		<transition>
 			<source ref="id2"/>
 			<target ref="id2"/>
@@ -303,14 +314,14 @@ positionBouleBoss = 0</label>
 			<source ref="id8"/>
 			<target ref="id13"/>
 			<label kind="guard" x="1419" y="34">t == 2</label>
-			<label kind="assignment" x="1419" y="51">degatsBoss()</label>
+			<label kind="assignment" x="1419" y="51">ptVieBoss--</label>
 			<nail x="1411" y="-8"/>
 		</transition>
 		<transition>
 			<source ref="id6"/>
 			<target ref="id13"/>
 			<label kind="guard" x="1419" y="-102">t == 2</label>
-			<label kind="assignment" x="1419" y="-85">degatsBoss()</label>
+			<label kind="assignment" x="1419" y="-85">ptVieBoss--</label>
 			<nail x="1411" y="-8"/>
 		</transition>
 		<transition>
