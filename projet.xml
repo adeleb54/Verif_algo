@@ -24,6 +24,7 @@ clock attaqueBdFJoueur;
 clock attaqueBdFBoss;
 clock deplacementJoueur;
 clock tempsPouvoir;
+clock tempsCaCJoueur;
 
 //Événements du système
 chan deplGaucheJoueur;
@@ -73,6 +74,7 @@ void activationBouclier(){
 			<name x="-375" y="-493">FinDuJeu</name>
 		</location>
 		<location id="id1" x="1122" y="170">
+			<label kind="invariant" x="960" y="187">tempsCaCJoueur &lt;=3</label>
 			<label kind="comments" x="1105" y="136">3</label>
 		</location>
 		<location id="id2" x="1130" y="-246">
@@ -197,9 +199,10 @@ tempsPouvoir=0</label>
 		<transition>
 			<source ref="id1"/>
 			<target ref="id1"/>
-			<label kind="guard" x="1190" y="144">ptVieBoss&gt;0</label>
+			<label kind="guard" x="1190" y="161">ptVieBoss&gt;0 &amp;&amp; tempsCaCJoueur &gt;=3</label>
 			<label kind="synchronisation" x="1190" y="110">attaqueCaCJoueur?</label>
-			<label kind="assignment" x="1190" y="127">ptVieBoss--</label>
+			<label kind="assignment" x="1190" y="127">ptVieBoss--,
+tempsCaCJoueur=0</label>
 			<nail x="1181" y="110"/>
 			<nail x="1181" y="153"/>
 		</transition>
@@ -361,10 +364,11 @@ tpsSaut = 0</label>
 		<transition>
 			<source ref="id5"/>
 			<target ref="id1"/>
-			<label kind="guard" x="799" y="229">deplacementJoueur&gt;=2</label>
+			<label kind="guard" x="799" y="246">deplacementJoueur&gt;=2</label>
 			<label kind="synchronisation" x="799" y="178">deplDroiteJoueur?</label>
 			<label kind="assignment" x="799" y="195">positionJoueur=3,
-deplacementJoueur=0</label>
+deplacementJoueur=0,
+tempsCaCJoueur=0</label>
 		</transition>
 		<transition>
 			<source ref="id3"/>
@@ -710,7 +714,7 @@ positionJoueur == positionBouleBoss)</label>
 		<transition>
 			<source ref="id21"/>
 			<target ref="id21"/>
-			<label kind="guard" x="-59" y="-25">t==5 &amp;&amp; typeAttaque == 0 &amp;&amp; ptVieBoss &gt; 0</label>
+			<label kind="guard" x="-59" y="-25">t==5 &amp;&amp; typeAttaque == 0 &amp;&amp; ptVieBoss&gt;0</label>
 			<label kind="synchronisation" x="-59" y="-42">attaqueCaCBoss!</label>
 			<label kind="assignment" x="-59" y="-8">typeAttaque = 1,
 t=0</label>
@@ -776,12 +780,13 @@ t=0</label>
 		<transition>
 			<source ref="id24"/>
 			<target ref="id24"/>
-			<nail x="118" y="161"/>
-			<nail x="118" y="221"/>
+			<nail x="34" y="289"/>
+			<nail x="-25" y="289"/>
 		</transition>
 		<transition>
 			<source ref="id25"/>
 			<target ref="id24"/>
+			<label kind="guard" x="0" y="136">ptVieJoueur==0 || ptVieBoss==0</label>
 			<label kind="synchronisation" x="0" y="119">finDuJeu!</label>
 		</transition>
 		<transition>
