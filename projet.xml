@@ -6,7 +6,6 @@
 //Variables du système
 int[0,3] ptVieJoueur = 3;
 int[0,3] ptVieBoss = 3;
-int [1, 5] coutVol;
 int [1, 5] coutBdf;
 int [1, 5] coutBouclier;
 int [1, 3] pouvoirJoueur; // BdF = 1, bouclier = 2, vol = 3
@@ -185,16 +184,18 @@ void activationBouclier(){
 		<transition>
 			<source ref="id2"/>
 			<target ref="id2"/>
-			<label kind="synchronisation" x="1138" y="-331">attaqueCaCJoueur?</label>
-			<label kind="assignment" x="1155" y="-314">ptVieBoss--</label>
-			<nail x="1138" y="-306"/>
-			<nail x="1164" y="-297"/>
+			<label kind="guard" x="1164" y="-323">ptVieBoss&gt;0</label>
+			<label kind="synchronisation" x="1139" y="-357">attaqueCaCJoueur?</label>
+			<label kind="assignment" x="1156" y="-340">ptVieBoss--</label>
+			<nail x="1139" y="-332"/>
+			<nail x="1165" y="-323"/>
 		</transition>
 		<transition>
 			<source ref="id1"/>
 			<target ref="id1"/>
-			<label kind="synchronisation" x="1190" y="119">attaqueCaCJoueur?</label>
-			<label kind="assignment" x="1190" y="144">ptVieBoss--</label>
+			<label kind="guard" x="1190" y="144">ptVieBoss&gt;0</label>
+			<label kind="synchronisation" x="1190" y="110">attaqueCaCJoueur?</label>
+			<label kind="assignment" x="1190" y="127">ptVieBoss--</label>
 			<nail x="1181" y="110"/>
 			<nail x="1181" y="153"/>
 		</transition>
@@ -304,6 +305,7 @@ void activationBouclier(){
 		<transition>
 			<source ref="id2"/>
 			<target ref="id6"/>
+			<label kind="synchronisation" x="272" y="-340">attaqueCaCBoss?</label>
 			<label kind="assignment" x="272" y="-365">positionJoueur = 1</label>
 			<label kind="comments" x="162" y="-365">Joueur projeté</label>
 			<nail x="1130" y="-348"/>
@@ -313,7 +315,8 @@ void activationBouclier(){
 		<transition>
 			<source ref="id1"/>
 			<target ref="id6"/>
-			<label kind="assignment" x="187" y="357">positionJoueur = 1</label>
+			<label kind="synchronisation" x="187" y="331">attaqueCaCBoss?</label>
+			<label kind="assignment" x="187" y="348">positionJoueur = 1</label>
 			<label kind="comments" x="68" y="357">Joueur projeté</label>
 			<nail x="1122" y="348"/>
 			<nail x="-238" y="348"/>
@@ -529,8 +532,8 @@ t=0</label>
 			<source ref="id13"/>
 			<target ref="id11"/>
 			<label kind="guard" x="-280" y="127">positionJoueur==1 &amp;&amp; pouvoirJoueur == 1</label>
-			<label kind="synchronisation" x="-255" y="212">utilisationPouvoirJoueur?</label>
-			<label kind="assignment" x="-280" y="161">positionBouleJoueur = 1,
+			<label kind="synchronisation" x="-280" y="178">utilisationPouvoirJoueur?</label>
+			<label kind="assignment" x="-280" y="144">positionBouleJoueur = 1,
 t = 0</label>
 			<nail x="-288" y="127"/>
 		</transition>
@@ -677,7 +680,7 @@ positionJoueur == positionBouleBoss)</label>
 		<transition>
 			<source ref="id21"/>
 			<target ref="id21"/>
-			<label kind="guard" x="-59" y="-25">t==5 &amp;&amp; typeAttaque == 0</label>
+			<label kind="guard" x="-59" y="-25">t==5 &amp;&amp; typeAttaque == 0 &amp;&amp; ptVieBoss &gt; 0</label>
 			<label kind="synchronisation" x="-59" y="-42">attaqueCaCBoss!</label>
 			<label kind="assignment" x="-59" y="-8">typeAttaque = 1,
 t=0</label>
@@ -738,7 +741,6 @@ t=0</label>
 			<name x="-85" y="204">FinDuJeu</name>
 		</location>
 		<location id="id25" x="0" y="0">
-			<label kind="invariant" x="-187" y="-76">ptVieJoueur&gt;0</label>
 		</location>
 		<init ref="id25"/>
 		<transition>
@@ -755,6 +757,7 @@ t=0</label>
 		<transition>
 			<source ref="id25"/>
 			<target ref="id25"/>
+			<label kind="guard" x="8" y="68">ptVieJoueur&gt;0 &amp;&amp; ptVieBoss&gt;0</label>
 			<label kind="synchronisation" x="8" y="51">attaqueCaCJoueur!</label>
 			<nail x="51" y="42"/>
 			<nail x="34" y="51"/>
@@ -762,14 +765,16 @@ t=0</label>
 		<transition>
 			<source ref="id25"/>
 			<target ref="id25"/>
-			<label kind="synchronisation" x="-170" y="51">utilisationPouvoirJoueur!</label>
-			<label kind="assignment" x="-170" y="68">applicationDegats()</label>
+			<label kind="guard" x="-238" y="85">ptVieJoueur&gt;0 &amp;&amp; ptVieBoss&gt;0</label>
+			<label kind="synchronisation" x="-238" y="51">utilisationPouvoirJoueur!</label>
+			<label kind="assignment" x="-238" y="68">applicationDegats()</label>
 			<nail x="-51" y="42"/>
 			<nail x="-34" y="51"/>
 		</transition>
 		<transition>
 			<source ref="id25"/>
 			<target ref="id25"/>
+			<label kind="guard" x="85" y="8">ptVieJoueur&gt;0 &amp;&amp; ptVieBoss&gt;0</label>
 			<label kind="synchronisation" x="85" y="-25">deplDroiteJoueur!</label>
 			<label kind="assignment" x="85" y="-8">applicationDegats()</label>
 			<nail x="76" y="-25"/>
@@ -778,16 +783,18 @@ t=0</label>
 		<transition>
 			<source ref="id25"/>
 			<target ref="id25"/>
-			<label kind="synchronisation" x="-25" y="-76">saut!</label>
-			<label kind="assignment" x="-25" y="-59">applicationDegats()</label>
+			<label kind="guard" x="-25" y="-68">ptVieJoueur&gt;0 &amp;&amp; ptVieBoss&gt;0</label>
+			<label kind="synchronisation" x="-25" y="-102">saut!</label>
+			<label kind="assignment" x="-25" y="-85">applicationDegats()</label>
 			<nail x="-25" y="-42"/>
 			<nail x="17" y="-42"/>
 		</transition>
 		<transition>
 			<source ref="id25"/>
 			<target ref="id25"/>
-			<label kind="synchronisation" x="-221" y="-17">deplGaucheJoueur!</label>
-			<label kind="assignment" x="-221" y="0">applicationDegats()</label>
+			<label kind="guard" x="-297" y="17">ptVieJoueur&gt;0 &amp;&amp; ptVieBoss&gt;0</label>
+			<label kind="synchronisation" x="-297" y="-17">deplGaucheJoueur!</label>
+			<label kind="assignment" x="-297" y="0">applicationDegats()</label>
 			<nail x="-76" y="-25"/>
 			<nail x="-76" y="0"/>
 		</transition>
@@ -797,7 +804,19 @@ system PlateauJoueur, PlateauBouleDeFeuJoueur,  PlateauBouleDeFeuBoss, GestionJo
     </system>
 	<queries>
 		<query>
-			<formula></formula>
+			<formula>E&lt;&gt; GestionJoueur.FinDuJeu and pouvoirJoueur==3</formula>
+			<comment></comment>
+		</query>
+		<query>
+			<formula>E&lt;&gt; GestionJoueur.FinDuJeu and pouvoirJoueur==2</formula>
+			<comment></comment>
+		</query>
+		<query>
+			<formula>E&lt;&gt; GestionJoueur.FinDuJeu and pouvoirJoueur==1</formula>
+			<comment></comment>
+		</query>
+		<query>
+			<formula>E&lt;&gt; GestionJoueur.FinDuJeu and ptVieJoueur&gt;0</formula>
 			<comment></comment>
 		</query>
 	</queries>
