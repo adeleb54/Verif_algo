@@ -24,6 +24,7 @@ clock attaqueCaCBossClock;
 clock attaqueBdFJoueur;
 clock attaqueBdFBoss;
 clock deplacementJoueur;
+clock tempsPouvoir;
 
 //Événements du système
 chan deplGaucheJoueur;
@@ -168,18 +169,20 @@ void activationBouclier(){
 		<transition>
 			<source ref="id4"/>
 			<target ref="id4"/>
-			<label kind="guard" x="-93" y="-306">pouvoirJoueur==2</label>
-			<label kind="synchronisation" x="-93" y="-340">utilisationPouvoirJoueur?</label>
-			<label kind="assignment" x="-93" y="-323">activationBouclier()</label>
+			<label kind="guard" x="-144" y="-306">pouvoirJoueur==2&amp;&amp;tempsPouvoir&gt;=2</label>
+			<label kind="synchronisation" x="-144" y="-357">utilisationPouvoirJoueur?</label>
+			<label kind="assignment" x="-144" y="-340">activationBouclier(),
+tempsPouvoir=0</label>
 			<nail x="-77" y="-282"/>
 			<nail x="-43" y="-282"/>
 		</transition>
 		<transition>
 			<source ref="id3"/>
 			<target ref="id3"/>
-			<label kind="guard" x="586" y="-280">pouvoirJoueur==2</label>
+			<label kind="guard" x="586" y="-280">pouvoirJoueur==2&amp;&amp;tempsPouvoir&gt;=2</label>
 			<label kind="synchronisation" x="586" y="-297">utilisationPouvoirJoueur?</label>
-			<label kind="assignment" x="586" y="-314">activationBouclier()</label>
+			<label kind="assignment" x="586" y="-331">activationBouclier(),
+tempsPouvoir=0</label>
 			<nail x="561" y="-281"/>
 			<nail x="586" y="-263"/>
 		</transition>
@@ -220,18 +223,20 @@ deplacementJoueur&gt;=2</label>
 		<transition>
 			<source ref="id6"/>
 			<target ref="id6"/>
-			<label kind="guard" x="-127" y="255">pouvoirJoueur==2</label>
+			<label kind="guard" x="-127" y="272">pouvoirJoueur==2&amp;&amp;tempsPouvoir&gt;=2</label>
 			<label kind="synchronisation" x="-144" y="221">utilisationPouvoirJoueur?</label>
-			<label kind="assignment" x="-127" y="238">activationBouclier()</label>
+			<label kind="assignment" x="-127" y="238">activationBouclier(),
+tempsPouvoir=0</label>
 			<nail x="-76" y="221"/>
 			<nail x="-42" y="221"/>
 		</transition>
 		<transition>
 			<source ref="id5"/>
 			<target ref="id5"/>
-			<label kind="guard" x="484" y="255">pouvoirJoueur==2</label>
+			<label kind="guard" x="484" y="272">pouvoirJoueur==2&amp;&amp;tempsPouvoir&gt;=2</label>
 			<label kind="synchronisation" x="476" y="221">utilisationPouvoirJoueur?</label>
-			<label kind="assignment" x="484" y="238">activationBouclier()</label>
+			<label kind="assignment" x="484" y="238">activationBouclier(),
+tempsPouvoir=0</label>
 			<nail x="527" y="221"/>
 			<nail x="570" y="221"/>
 		</transition>
@@ -299,18 +304,20 @@ deplacementJoueur=0</label>
 		<transition>
 			<source ref="id2"/>
 			<target ref="id2"/>
-			<label kind="guard" x="1190" y="-263">pouvoirJoueur==2</label>
+			<label kind="guard" x="1190" y="-246">pouvoirJoueur==2&amp;&amp;tempsPouvoir&gt;=2</label>
 			<label kind="synchronisation" x="1190" y="-297">utilisationPouvoirJoueur?</label>
-			<label kind="assignment" x="1190" y="-280">activationBouclier()</label>
+			<label kind="assignment" x="1190" y="-280">activationBouclier(),
+tempsPouvoir=0</label>
 			<nail x="1181" y="-254"/>
 			<nail x="1182" y="-288"/>
 		</transition>
 		<transition>
 			<source ref="id1"/>
 			<target ref="id1"/>
-			<label kind="guard" x="1173" y="272">pouvoirJoueur==2</label>
+			<label kind="guard" x="1173" y="289">pouvoirJoueur==2&amp;&amp;tempsPouvoir&gt;=2</label>
 			<label kind="synchronisation" x="1172" y="237">utilisationPouvoirJoueur?</label>
-			<label kind="assignment" x="1172" y="254">activationBouclier()</label>
+			<label kind="assignment" x="1172" y="254">activationBouclier(),
+tempsPouvoir=0</label>
 			<nail x="1181" y="195"/>
 			<nail x="1181" y="229"/>
 		</transition>
