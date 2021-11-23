@@ -767,7 +767,7 @@ applicationDegats()</label>
 		<transition>
 			<source ref="id21"/>
 			<target ref="id19"/>
-			<label kind="guard" x="-365" y="42">t==5  &amp;&amp; typeAttaque == 2</label>
+			<label kind="guard" x="-365" y="42">t==5  &amp;&amp; typeAttaque == 2&amp;&amp;ptVieBoss&gt;0</label>
 			<label kind="assignment" x="-365" y="59">positionBouleBoss = 3,
 t=0,
 applicationDegats()</label>
@@ -776,7 +776,7 @@ applicationDegats()</label>
 		<transition>
 			<source ref="id21"/>
 			<target ref="id20"/>
-			<label kind="guard" x="-365" y="-127">t==5 &amp;&amp; typeAttaque == 1</label>
+			<label kind="guard" x="-365" y="-127">t==5 &amp;&amp; typeAttaque == 1&amp;&amp;ptVieBoss&gt;0</label>
 			<label kind="assignment" x="-365" y="-110">positionBouleBoss = 6,
 t=0,
 applicationDegats()</label>
