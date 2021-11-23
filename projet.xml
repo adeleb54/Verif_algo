@@ -242,21 +242,21 @@ tempsPouvoir=0</label>
 		<transition>
 			<source ref="id2"/>
 			<target ref="id1"/>
-			<label kind="guard" x="1147" y="-110">tpsSaut &gt;= 2</label>
+			<label kind="guard" x="1147" y="-110">tpsSaut &gt;= 2 &amp;&amp; pouvoirJoueur!=3</label>
 			<label kind="assignment" x="1147" y="-93">positionJoueur=3</label>
 			<nail x="1130" y="76"/>
 		</transition>
 		<transition>
 			<source ref="id3"/>
 			<target ref="id5"/>
-			<label kind="guard" x="551" y="-153">tpsSaut &gt;= 2</label>
+			<label kind="guard" x="551" y="-153">tpsSaut &gt;= 2 &amp;&amp; pouvoirJoueur!=3</label>
 			<label kind="assignment" x="552" y="-136">positionJoueur=2</label>
 			<nail x="544" y="59"/>
 		</transition>
 		<transition>
 			<source ref="id4"/>
 			<target ref="id6"/>
-			<label kind="guard" x="-76" y="-34">tpsSaut &gt;= 2</label>
+			<label kind="guard" x="-76" y="-34">tpsSaut &gt;= 2 &amp;&amp; pouvoirJoueur!=3</label>
 			<label kind="assignment" x="-76" y="-17">positionJoueur=1</label>
 			<nail x="-76" y="-17"/>
 		</transition>
