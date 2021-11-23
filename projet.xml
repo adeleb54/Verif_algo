@@ -93,9 +93,9 @@ void activationBouclier(){
 		<transition>
 			<source ref="id1"/>
 			<target ref="id6"/>
-			<label kind="guard" x="314" y="467">attaqueCacJoueur?</label>
-			<label kind="synchronisation" x="314" y="484">ptVieBoss&gt;0&amp;&amp;tempsCaCJoueur&gt;=3</label>
-			<label kind="assignment" x="314" y="501">ptVieBoss--, positionJoueur=1, tempsCacJoueur=0</label>
+			<label kind="guard" x="314" y="467">ptVieBoss&gt;0&amp;&amp;tempsCaCJoueur&gt;=3</label>
+			<label kind="synchronisation" x="314" y="484">attaqueCaCJoueur?</label>
+			<label kind="assignment" x="314" y="501">ptVieBoss--, positionJoueur=1, tempsCaCJoueur=0</label>
 			<nail x="1122" y="459"/>
 			<nail x="-306" y="459"/>
 			<nail x="-306" y="170"/>
@@ -103,9 +103,9 @@ void activationBouclier(){
 		<transition>
 			<source ref="id2"/>
 			<target ref="id6"/>
-			<label kind="guard" x="272" y="-450">ptVieBoss&gt;0 &amp;&amp; tempsCacJoueur&gt;=3</label>
+			<label kind="guard" x="272" y="-450">ptVieBoss&gt;0 &amp;&amp; tempsCaCJoueur&gt;=3</label>
 			<label kind="synchronisation" x="272" y="-433">attaqueCaCJoueur?</label>
-			<label kind="assignment" x="272" y="-416">ptVieBoss--, positionJoueur=1, tempsCacJoueur=0</label>
+			<label kind="assignment" x="272" y="-416">ptVieBoss--, positionJoueur=1, tempsCaCJoueur=0</label>
 			<nail x="1130" y="-399"/>
 			<nail x="-323" y="-391"/>
 			<nail x="-323" y="170"/>
