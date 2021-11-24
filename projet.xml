@@ -38,14 +38,14 @@ void degatsBoss() {
 }*/
 
 void applicationDegats() {
-    if (positionBouleBoss == positionJoueur &amp;&amp; !bouclierActif) {
+    if (positionBouleBoss == positionJoueur &amp;&amp; !bouclierActif &amp;&amp; ptVieJoueur &gt; 0) {
         ptVieJoueur--;
         pouvoirActif = false;
     }
 }
 
 void cacBoss() {
-    if (!bouclierActif) {
+    if (!bouclierActif &amp;&amp; ptVieJoueur &gt; 0) {
         ptVieJoueur--;
         pouvoirActif = false;
     }
@@ -258,7 +258,6 @@ tempsPouvoir=0</label>
 			<target ref="id5"/>
 			<label kind="guard" x="551" y="-153">tpsSaut &gt;= 2 &amp;&amp; pouvoirJoueur!=3</label>
 			<label kind="assignment" x="552" y="-136">positionJoueur=2</label>
-			<nail x="544" y="59"/>
 		</transition>
 		<transition>
 			<source ref="id4"/>
@@ -459,41 +458,41 @@ positionBouleBoss = 0</label>
 		<transition>
 			<source ref="id9"/>
 			<target ref="id14"/>
-			<label kind="guard" x="1419" y="34">t == 2</label>
+			<label kind="guard" x="1419" y="34">t&gt;=2</label>
 			<label kind="assignment" x="1419" y="51">ptVieBoss--</label>
 			<nail x="1411" y="-8"/>
 		</transition>
 		<transition>
 			<source ref="id7"/>
 			<target ref="id14"/>
-			<label kind="guard" x="1419" y="-102">t == 2</label>
+			<label kind="guard" x="1419" y="-102">t&gt;=2</label>
 			<label kind="assignment" x="1419" y="-85">ptVieBoss--</label>
 			<nail x="1411" y="-8"/>
 		</transition>
 		<transition>
 			<source ref="id8"/>
 			<target ref="id14"/>
-			<label kind="guard" x="595" y="-93">t == 2 &amp;&amp;
+			<label kind="guard" x="595" y="-93">t&gt;=2 &amp;&amp;
 positionBouleBoss == positionBouleJoueur</label>
 			<nail x="739" y="-8"/>
 		</transition>
 		<transition>
 			<source ref="id10"/>
 			<target ref="id14"/>
-			<label kind="guard" x="595" y="42">t == 2 &amp;&amp;
+			<label kind="guard" x="595" y="42">t&gt;=2 &amp;&amp;
 positionBouleBoss == positionBouleJoueur</label>
 			<nail x="739" y="-8"/>
 		</transition>
 		<transition>
 			<source ref="id11"/>
 			<target ref="id14"/>
-			<label kind="guard" x="-42" y="51">t==2 &amp;&amp;
+			<label kind="guard" x="-42" y="51">t&gt;=2 &amp;&amp;
 positionBouleBoss == positionBouleJoueur</label>
 		</transition>
 		<transition>
 			<source ref="id12"/>
 			<target ref="id14"/>
-			<label kind="guard" x="-42" y="-93">t == 2 &amp;&amp;
+			<label kind="guard" x="-42" y="-93">t&gt;=2 &amp;&amp;
 positionBouleBoss == positionBouleJoueur</label>
 		</transition>
 		<transition>
@@ -540,7 +539,7 @@ t=0</label>
 		<transition>
 			<source ref="id8"/>
 			<target ref="id7"/>
-			<label kind="guard" x="1011" y="-161">t==2 &amp;&amp;
+			<label kind="guard" x="1011" y="-161">t&gt;=2 &amp;&amp;
 positionBouleBoss != positionBouleJoueur</label>
 			<label kind="assignment" x="1011" y="-127">positionBouleJoueur = 6,
 t=0</label>
@@ -548,7 +547,7 @@ t=0</label>
 		<transition>
 			<source ref="id12"/>
 			<target ref="id8"/>
-			<label kind="guard" x="289" y="-161">t==2 &amp;&amp;
+			<label kind="guard" x="289" y="-161">t&gt;=2 &amp;&amp;
 positionBouleBoss != positionBouleJoueur</label>
 			<label kind="assignment" x="289" y="-127">positionBouleJoueur = 5,
 t=0</label>
@@ -556,7 +555,7 @@ t=0</label>
 		<transition>
 			<source ref="id10"/>
 			<target ref="id9"/>
-			<label kind="guard" x="1003" y="127">t==2 &amp;&amp;
+			<label kind="guard" x="1003" y="127">t&gt;=2 &amp;&amp;
 positionBouleBoss != positionBouleJoueur</label>
 			<label kind="assignment" x="1003" y="161">positionBouleJoueur = 3,
 t=0</label>
@@ -564,7 +563,7 @@ t=0</label>
 		<transition>
 			<source ref="id11"/>
 			<target ref="id10"/>
-			<label kind="guard" x="263" y="127">t==2 &amp;&amp;
+			<label kind="guard" x="263" y="127">t&gt;=2 &amp;&amp;
 positionBouleBoss != positionBouleJoueur</label>
 			<label kind="assignment" x="263" y="161">positionBouleJoueur = 2,
 t=0</label>
@@ -631,7 +630,7 @@ clock t;</declaration>
 		<transition>
 			<source ref="id21"/>
 			<target ref="id21"/>
-			<label kind="guard" x="25" y="-8">t&gt;=5 &amp;&amp; typeAttaque == 0 &amp;&amp; ptVieBoss&gt;0 &amp;&amp;ptVieJoueur&gt;0&amp;&amp; 
+			<label kind="guard" x="25" y="-8">t&gt;=5 &amp;&amp; typeAttaque == 0 &amp;&amp; ptVieBoss&gt;0 &amp;&amp;ptVieJoueur&gt;0&amp;&amp;
 (positionJoueur != 3 &amp;&amp; positionJoueur != 6)</label>
 			<label kind="assignment" x="25" y="25">t=0,
 typeAttaque=1</label>
@@ -641,7 +640,7 @@ typeAttaque=1</label>
 		<transition>
 			<source ref="id17"/>
 			<target ref="id21"/>
-			<label kind="guard" x="-1198" y="297">t==2 &amp;&amp;
+			<label kind="guard" x="-1198" y="297">t&gt;=2 &amp;&amp;
 (positionBouleBoss != positionBouleJoueur ||
 positionJoueur != positionBouleBoss)</label>
 			<label kind="assignment" x="-807" y="297">typeAttaque = 0,
@@ -653,7 +652,7 @@ positionBouleBoss = 0</label>
 		<transition>
 			<source ref="id15"/>
 			<target ref="id21"/>
-			<label kind="guard" x="-1198" y="-391">t==2 &amp;&amp;
+			<label kind="guard" x="-1198" y="-391">t&gt;=2 &amp;&amp;
 (positionBouleBoss != positionBouleJoueur ||
 positionJoueur != positionBouleBoss)</label>
 			<label kind="assignment" x="-1197" y="-322">typeAttaque = 2,
@@ -742,7 +741,7 @@ cacBoss()</label>
 		<transition>
 			<source ref="id16"/>
 			<target ref="id15"/>
-			<label kind="guard" x="-1190" y="-144">t==2 &amp;&amp;
+			<label kind="guard" x="-1190" y="-144">t&gt;=2 &amp;&amp;
 !(positionBouleBoss == positionBouleJoueur ||
 positionJoueur == positionBouleBoss)</label>
 			<label kind="assignment" x="-1189" y="-93">positionBouleBoss = 4,
@@ -751,7 +750,7 @@ t=0</label>
 		<transition>
 			<source ref="id20"/>
 			<target ref="id16"/>
-			<label kind="guard" x="-765" y="-161">t==2 &amp;&amp;
+			<label kind="guard" x="-765" y="-161">t&gt;=2 &amp;&amp;
 !(positionBouleBoss == positionBouleJoueur ||
 positionJoueur == positionBouleBoss)</label>
 			<label kind="assignment" x="-765" y="-110">positionBouleBoss = 5,
@@ -760,7 +759,7 @@ t=0</label>
 		<transition>
 			<source ref="id18"/>
 			<target ref="id17"/>
-			<label kind="guard" x="-1181" y="42">t==2 &amp;&amp; 
+			<label kind="guard" x="-1181" y="42">t&gt;=2 &amp;&amp;
 !(positionBouleBoss == positionBouleJoueur ||
 positionJoueur == positionBouleBoss)</label>
 			<label kind="assignment" x="-1181" y="93">positionBouleBoss = 1,
@@ -769,7 +768,7 @@ t=0</label>
 		<transition>
 			<source ref="id19"/>
 			<target ref="id18"/>
-			<label kind="guard" x="-799" y="42">t==2 &amp;&amp;
+			<label kind="guard" x="-799" y="42">t&gt;=2 &amp;&amp;
 !(positionBouleBoss == positionBouleJoueur ||
 positionJoueur == positionBouleBoss)</label>
 			<label kind="assignment" x="-799" y="93">positionBouleBoss = 2,
