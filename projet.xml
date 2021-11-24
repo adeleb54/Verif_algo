@@ -38,14 +38,14 @@ void degatsBoss() {
 }*/
 
 void applicationDegats() {
-    if (positionBouleBoss == positionJoueur &amp;&amp; !bouclierActif) {
+    if (positionBouleBoss == positionJoueur &amp;&amp; !bouclierActif &amp;&amp; ptVieJoueur &gt; 0) {
         ptVieJoueur--;
         pouvoirActif = false;
     }
 }
 
 void cacBoss() {
-    if (!bouclierActif) {
+    if (!bouclierActif &amp;&amp; ptVieJoueur &gt; 0) {
         ptVieJoueur--;
         pouvoirActif = false;
     }
