@@ -177,7 +177,7 @@ void activationBouclier(){
 			<label kind="guard" x="-17" y="34">pouvoirJoueur==3</label>
 			<label kind="synchronisation" x="-17" y="51">utilisationPouvoirJoueur?</label>
 			<label kind="assignment" x="-17" y="68">positionJoueur=1</label>
-			<nail x="-25" y="51"/>
+			<nail x="-34" y="34"/>
 		</transition>
 		<transition>
 			<source ref="id2"/>
@@ -618,7 +618,7 @@ clock t;</declaration>
 		</location>
 		<location id="id21" x="-127" y="-8">
 			<name x="-195" y="-25">Debut</name>
-			<label kind="invariant" x="-195" y="-8">t&lt;=5</label>
+			<label kind="invariant" x="-195" y="-8">t&lt;=1</label>
 		</location>
 		<location id="id22" x="-127" y="221">
 			<urgent/>
@@ -630,7 +630,7 @@ clock t;</declaration>
 		<transition>
 			<source ref="id21"/>
 			<target ref="id21"/>
-			<label kind="guard" x="25" y="-8">t&gt;=5 &amp;&amp; typeAttaque == 0 &amp;&amp; ptVieBoss&gt;0 &amp;&amp;ptVieJoueur&gt;0&amp;&amp;
+			<label kind="guard" x="25" y="-8">t&gt;=1 &amp;&amp; typeAttaque == 0 &amp;&amp; ptVieBoss&gt;0 &amp;&amp;ptVieJoueur&gt;0&amp;&amp;
 (positionJoueur != 3 &amp;&amp; positionJoueur != 6)</label>
 			<label kind="assignment" x="25" y="25">t=0,
 typeAttaque=1</label>
@@ -730,7 +730,7 @@ positionJoueur == positionBouleBoss)</label>
 		<transition>
 			<source ref="id21"/>
 			<target ref="id21"/>
-			<label kind="guard" x="25" y="-102">t&gt;=5 &amp;&amp; typeAttaque == 0 &amp;&amp; ptVieBoss&gt;0&amp;&amp;ptVieJoueur&gt;0</label>
+			<label kind="guard" x="25" y="-102">t&gt;=1 &amp;&amp; typeAttaque == 0 &amp;&amp; ptVieBoss&gt;0&amp;&amp;ptVieJoueur&gt;0</label>
 			<label kind="synchronisation" x="25" y="-119">attaqueCaCBoss!</label>
 			<label kind="assignment" x="25" y="-85">typeAttaque = 1,
 t=0,
@@ -777,7 +777,7 @@ t=0</label>
 		<transition>
 			<source ref="id21"/>
 			<target ref="id19"/>
-			<label kind="guard" x="-365" y="42">t==5  &amp;&amp; typeAttaque == 2&amp;&amp;ptVieBoss&gt;0&amp;&amp;ptVieJoueur&gt;0</label>
+			<label kind="guard" x="-365" y="42">t==1  &amp;&amp; typeAttaque == 2&amp;&amp;ptVieBoss&gt;0&amp;&amp;ptVieJoueur&gt;0</label>
 			<label kind="assignment" x="-365" y="59">positionBouleBoss = 3,
 t=0</label>
 			<nail x="-161" y="42"/>
@@ -785,7 +785,7 @@ t=0</label>
 		<transition>
 			<source ref="id21"/>
 			<target ref="id20"/>
-			<label kind="guard" x="-365" y="-127">t==5 &amp;&amp; typeAttaque == 1&amp;&amp;ptVieBoss&gt;0&amp;&amp;ptVieJoueur&gt;0</label>
+			<label kind="guard" x="-365" y="-127">t==1 &amp;&amp; typeAttaque == 1&amp;&amp;ptVieBoss&gt;0&amp;&amp;ptVieJoueur&gt;0</label>
 			<label kind="assignment" x="-365" y="-110">positionBouleBoss = 6,
 t=0</label>
 			<nail x="-161" y="-51"/>
@@ -864,6 +864,18 @@ BdfJoueur = PlateauBouleDeFeuJoueur(pouvoir);
 system Plateau, BdfJoueur,  PlateauBouleDeFeuBoss, GestionJoueur;
 </system>
 	<queries>
+		<query>
+			<formula>E&lt;&gt; GestionJoueur.FinDuJeu and ptVieJoueur==0</formula>
+			<comment></comment>
+		</query>
+		<query>
+			<formula>E&lt;&gt; GestionJoueur.FinDuJeu and ptVieJoueur==1</formula>
+			<comment></comment>
+		</query>
+		<query>
+			<formula>E&lt;&gt; GestionJoueur.FinDuJeu and ptVieJoueur==2</formula>
+			<comment></comment>
+		</query>
 		<query>
 			<formula>E&lt;&gt; GestionJoueur.FinDuJeu and ptVieJoueur==3</formula>
 			<comment></comment>
