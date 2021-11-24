@@ -641,7 +641,7 @@ typeAttaque=1</label>
 			<source ref="id17"/>
 			<target ref="id21"/>
 			<label kind="guard" x="-1198" y="297">t&gt;=2 &amp;&amp;
-(positionBouleBoss != positionBouleJoueur ||
+(positionBouleBoss != positionBouleJoueur &amp;&amp;
 positionJoueur != positionBouleBoss)</label>
 			<label kind="assignment" x="-807" y="297">typeAttaque = 0,
 t=0,
@@ -653,7 +653,7 @@ positionBouleBoss = 0</label>
 			<source ref="id15"/>
 			<target ref="id21"/>
 			<label kind="guard" x="-1198" y="-391">t&gt;=2 &amp;&amp;
-(positionBouleBoss != positionBouleJoueur ||
+(positionBouleBoss != positionBouleJoueur &amp;&amp;
 positionJoueur != positionBouleBoss)</label>
 			<label kind="assignment" x="-1197" y="-322">typeAttaque = 2,
 t=0,
@@ -832,6 +832,7 @@ t=0</label>
 			<target ref="id25"/>
 			<label kind="guard" x="85" y="-8">ptVieJoueur&gt;0 &amp;&amp; ptVieBoss&gt;0</label>
 			<label kind="synchronisation" x="85" y="-25">deplDroiteJoueur!</label>
+			<label kind="assignment" x="85" y="8">applicationDegats()</label>
 			<nail x="76" y="-25"/>
 			<nail x="76" y="0"/>
 		</transition>
@@ -840,6 +841,7 @@ t=0</label>
 			<target ref="id25"/>
 			<label kind="guard" x="-25" y="-68">ptVieJoueur&gt;0 &amp;&amp; ptVieBoss&gt;0</label>
 			<label kind="synchronisation" x="-25" y="-85">saut!</label>
+			<label kind="assignment" x="-25" y="-102">applicationDegats()</label>
 			<nail x="-25" y="-42"/>
 			<nail x="17" y="-42"/>
 		</transition>
@@ -848,13 +850,14 @@ t=0</label>
 			<target ref="id25"/>
 			<label kind="guard" x="-280" y="-17">ptVieJoueur&gt;0 &amp;&amp; ptVieBoss&gt;0</label>
 			<label kind="synchronisation" x="-246" y="-34">deplGaucheJoueur!</label>
+			<label kind="assignment" x="-280" y="0">applicationDegats()</label>
 			<nail x="-76" y="-25"/>
 			<nail x="-76" y="0"/>
 		</transition>
 	</template>
 	<system>// BdF = 1, bouclier = 2, vol = 3
 
-const int pouvoir = 2;
+const int pouvoir = 0;
 
 Plateau = PlateauJoueur(pouvoir);
 BdfJoueur = PlateauBouleDeFeuJoueur(pouvoir);
