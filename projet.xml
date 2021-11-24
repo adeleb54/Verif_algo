@@ -349,6 +349,7 @@ tempsPouvoir=0</label>
 		<transition>
 			<source ref="id1"/>
 			<target ref="id2"/>
+			<label kind="guard" x="960" y="-68">tpsSaut&gt;=1</label>
 			<label kind="synchronisation" x="960" y="-51">saut?</label>
 			<label kind="assignment" x="960" y="-34">positionJoueur = 6,
 tpsSaut = 0,
@@ -358,6 +359,7 @@ applicationDegats()</label>
 		<transition>
 			<source ref="id5"/>
 			<target ref="id3"/>
+			<label kind="guard" x="374" y="-85">tpsSaut&gt;=1</label>
 			<label kind="synchronisation" x="374" y="-68">saut?</label>
 			<label kind="assignment" x="374" y="-51">positionJoueur = 5,
 tpsSaut = 0,
@@ -397,6 +399,7 @@ deplacementJoueur=0</label>
 		<transition>
 			<source ref="id6"/>
 			<target ref="id4"/>
+			<label kind="guard" x="-221" y="-42">tpsSaut&gt;=1</label>
 			<label kind="synchronisation" x="-221" y="-25">saut?</label>
 			<label kind="assignment" x="-221" y="-8">positionJoueur = 4,
 tpsSaut = 0,
@@ -881,7 +884,12 @@ system Plateau, BdfJoueur,  PlateauBouleDeFeuBoss, GestionJoueur;
 			<comment></comment>
 		</query>
 		<query>
-			<formula>E&lt;&gt; GestionJoueur.FinDuJeu and ptVieJoueur&gt;0</formula>
+			<formula>E&lt;&gt; GestionJoueur.FinDuJeu and ptVieJoueur&gt;0
+</formula>
+			<comment></comment>
+		</query>
+		<query>
+			<formula>A&lt;&gt; GestionJoueur.FinDuJeu and ptVieJoueur&gt;0</formula>
 			<comment></comment>
 		</query>
 	</queries>
