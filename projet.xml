@@ -4,13 +4,14 @@
 	<declaration>// Place global declarations here.
 
 //Variables du système
-int[0,3] ptVieJoueur = 3;
-int[0,2000] ptVieBoss = 20;
+int[0,10] ptVieJoueur = 10;
+int[0,2000] ptVieBoss = 10;
 int [1, 5] coutBdf;
 int [1, 5] coutBouclier;
 //int [1, 3] pouvoirJoueur;
 bool pouvoirActif = true;
 bool bouclierActif = false;
+bool aSaute = false;
 int [1, 6] positionJoueur;
 int [0, 6] positionBouleBoss;
 int [0, 6] positionBouleJoueur;
@@ -29,13 +30,6 @@ chan utilisationPouvoirJoueur;
 chan attaqueCaCJoueur;
 chan attaqueCaCBoss;
 chan finDuJeu;
-
-/*void lanceBouleDeFeu(int pos){
-}
-
-void degatsBoss() {
-
-}*/
 
 void applicationDegats() {
     if (positionBouleBoss == positionJoueur &amp;&amp; !bouclierActif &amp;&amp; ptVieJoueur &gt; 0) {
@@ -101,7 +95,7 @@ void activationBouclier(){
 			<target ref="id6"/>
 			<label kind="guard" x="306" y="425">ptVieBoss&gt;0</label>
 			<label kind="synchronisation" x="306" y="442">attaqueCaCJoueur?</label>
-			<label kind="assignment" x="306" y="459">ptVieBoss--, positionJoueur=1, tempsCaCJoueur=0,deplacementJoueur=0, tpsSaut=0</label>
+			<label kind="assignment" x="306" y="459">ptVieBoss--, positionJoueur=1, tempsCaCJoueur=0,deplacementJoueur=0</label>
 			<nail x="1122" y="459"/>
 			<nail x="-306" y="459"/>
 			<nail x="-306" y="170"/>
@@ -160,8 +154,7 @@ void activationBouclier(){
 			<target ref="id1"/>
 			<label kind="guard" x="1198" y="-34">pouvoirJoueur==3</label>
 			<label kind="synchronisation" x="1198" y="-17">utilisationPouvoirJoueur?</label>
-			<label kind="assignment" x="1198" y="0">positionJoueur=3,
-tpsSaut=0</label>
+			<label kind="assignment" x="1198" y="0">positionJoueur=3</label>
 			<nail x="1181" y="-25"/>
 		</transition>
 		<transition>
@@ -169,17 +162,15 @@ tpsSaut=0</label>
 			<target ref="id5"/>
 			<label kind="guard" x="595" y="-59">pouvoirJoueur==3</label>
 			<label kind="synchronisation" x="595" y="-42">utilisationPouvoirJoueur?</label>
-			<label kind="assignment" x="595" y="-25">positionJoueur=2,
-tpsSaut=0</label>
+			<label kind="assignment" x="595" y="-25">positionJoueur=2</label>
 			<nail x="586" y="-8"/>
 		</transition>
 		<transition>
 			<source ref="id4"/>
 			<target ref="id6"/>
-			<label kind="guard" x="-25" y="8">pouvoirJoueur==3</label>
-			<label kind="synchronisation" x="-25" y="25">utilisationPouvoirJoueur?</label>
-			<label kind="assignment" x="-25" y="42">positionJoueur=1,
-tpsSaut=0</label>
+			<label kind="guard" x="-17" y="34">pouvoirJoueur==3</label>
+			<label kind="synchronisation" x="-17" y="51">utilisationPouvoirJoueur?</label>
+			<label kind="assignment" x="-17" y="68">positionJoueur=1</label>
 			<nail x="-34" y="34"/>
 		</transition>
 		<transition>
@@ -253,22 +244,21 @@ tempsPouvoir=0</label>
 			<source ref="id2"/>
 			<target ref="id1"/>
 			<label kind="guard" x="1147" y="-110">tpsSaut &gt;= 2 &amp;&amp; pouvoirJoueur!=3</label>
-			<label kind="assignment" x="1147" y="-93">positionJoueur=3,
-tpsSaut=0</label>
+			<label kind="assignment" x="1147" y="-93">positionJoueur=3</label>
+			<nail x="1130" y="76"/>
 		</transition>
 		<transition>
 			<source ref="id3"/>
 			<target ref="id5"/>
 			<label kind="guard" x="551" y="-153">tpsSaut &gt;= 2 &amp;&amp; pouvoirJoueur!=3</label>
-			<label kind="assignment" x="552" y="-136">positionJoueur=2,
-tpsSaut=0</label>
+			<label kind="assignment" x="552" y="-136">positionJoueur=2</label>
 		</transition>
 		<transition>
 			<source ref="id4"/>
 			<target ref="id6"/>
-			<label kind="guard" x="-59" y="-68">tpsSaut &gt;= 2 &amp;&amp; pouvoirJoueur!=3</label>
-			<label kind="assignment" x="-59" y="-51">positionJoueur=1,
-tpsSaut=0</label>
+			<label kind="guard" x="-76" y="-34">tpsSaut &gt;= 2 &amp;&amp; pouvoirJoueur!=3</label>
+			<label kind="assignment" x="-76" y="-17">positionJoueur=1</label>
+			<nail x="-76" y="-17"/>
 		</transition>
 		<transition>
 			<source ref="id3"/>
@@ -295,12 +285,12 @@ deplacementJoueur=0</label>
 		<transition>
 			<source ref="id1"/>
 			<target ref="id5"/>
-			<label kind="guard" x="705" y="68">deplacementJoueur&gt;=2&amp;&amp;!bouclierActif</label>
-			<label kind="synchronisation" x="705" y="85">deplGaucheJoueur?</label>
-			<label kind="assignment" x="705" y="102">positionJoueur=2,
+			<label kind="guard" x="782" y="51">deplacementJoueur&gt;=2&amp;&amp;!bouclierActif</label>
+			<label kind="synchronisation" x="782" y="68">deplGaucheJoueur?</label>
+			<label kind="assignment" x="782" y="85">positionJoueur=2,
 deplacementJoueur=0,
 tpsSaut=0</label>
-			<nail x="841" y="144"/>
+			<nail x="841" y="119"/>
 		</transition>
 		<transition>
 			<source ref="id5"/>
@@ -336,7 +326,7 @@ tempsPouvoir=0</label>
 			<source ref="id2"/>
 			<target ref="id6"/>
 			<label kind="synchronisation" x="272" y="-340">attaqueCaCBoss?</label>
-			<label kind="assignment" x="272" y="-365">positionJoueur = 1, tempsCaCJoueur=0, deplacementJoueur=0, tpsSaut=0</label>
+			<label kind="assignment" x="272" y="-365">positionJoueur = 1</label>
 			<label kind="comments" x="162" y="-365">Joueur projeté</label>
 			<nail x="1130" y="-348"/>
 			<nail x="-238" y="-340"/>
@@ -346,7 +336,7 @@ tempsPouvoir=0</label>
 			<source ref="id1"/>
 			<target ref="id6"/>
 			<label kind="synchronisation" x="187" y="331">attaqueCaCBoss?</label>
-			<label kind="assignment" x="187" y="348">positionJoueur = 1, tempsCaCJoueur=0, deplacementJoueur=0, tpsSaut=0</label>
+			<label kind="assignment" x="187" y="348">positionJoueur = 1</label>
 			<label kind="comments" x="68" y="357">Joueur projeté</label>
 			<nail x="1122" y="348"/>
 			<nail x="-238" y="348"/>
@@ -359,7 +349,8 @@ tempsPouvoir=0</label>
 			<label kind="synchronisation" x="960" y="-51">saut?</label>
 			<label kind="assignment" x="960" y="-34">positionJoueur = 6,
 tpsSaut = 0,
-applicationDegats()</label>
+applicationDegats(),
+aSaute=true</label>
 			<nail x="1096" y="-25"/>
 		</transition>
 		<transition>
@@ -369,13 +360,14 @@ applicationDegats()</label>
 			<label kind="synchronisation" x="374" y="-68">saut?</label>
 			<label kind="assignment" x="374" y="-51">positionJoueur = 5,
 tpsSaut = 0,
-applicationDegats()</label>
+applicationDegats(),
+aSaute=true</label>
 			<nail x="510" y="-8"/>
 		</transition>
 		<transition>
 			<source ref="id5"/>
 			<target ref="id1"/>
-			<label kind="guard" x="799" y="263">deplacementJoueur&gt;=10&amp;&amp;!bouclierActif</label>
+			<label kind="guard" x="799" y="246">deplacementJoueur&gt;=2&amp;&amp;!bouclierActif</label>
 			<label kind="synchronisation" x="799" y="178">deplDroiteJoueur?</label>
 			<label kind="assignment" x="799" y="195">positionJoueur=3,
 deplacementJoueur=0,
@@ -410,14 +402,15 @@ deplacementJoueur=0</label>
 			<label kind="synchronisation" x="-221" y="-25">saut?</label>
 			<label kind="assignment" x="-221" y="-8">positionJoueur = 4,
 tpsSaut = 0,
-applicationDegats()</label>
+applicationDegats(),
+aSaute=true</label>
 			<label kind="comments" x="-153" y="-189">Saut</label>
 			<nail x="-110" y="-25"/>
 		</transition>
 		<transition>
 			<source ref="id6"/>
 			<target ref="id5"/>
-			<label kind="guard" x="178" y="229">deplacementJoueur&gt;=10&amp;&amp;!bouclierActif</label>
+			<label kind="guard" x="178" y="246">deplacementJoueur&gt;=2&amp;&amp;!bouclierActif</label>
 			<label kind="synchronisation" x="178" y="178">deplDroiteJoueur?</label>
 			<label kind="assignment" x="178" y="195">positionJoueur=2,
 deplacementJoueur=0,
@@ -654,7 +647,7 @@ typeAttaque=1</label>
 			<label kind="guard" x="-1198" y="297">t&gt;=2 &amp;&amp;
 (positionBouleBoss != positionBouleJoueur &amp;&amp;
 positionJoueur != positionBouleBoss)</label>
-			<label kind="assignment" x="-807" y="297">typeAttaque = 0,
+			<label kind="assignment" x="-807" y="297">typeAttaque = 2,
 t=0,
 positionBouleBoss = 0</label>
 			<nail x="-1215" y="357"/>
@@ -666,7 +659,7 @@ positionBouleBoss = 0</label>
 			<label kind="guard" x="-1198" y="-391">t&gt;=2 &amp;&amp;
 (positionBouleBoss != positionBouleJoueur &amp;&amp;
 positionJoueur != positionBouleBoss)</label>
-			<label kind="assignment" x="-1197" y="-322">typeAttaque = 2,
+			<label kind="assignment" x="-1197" y="-322">typeAttaque = 0,
 t=0,
 positionBouleBoss = 0</label>
 			<nail x="-1215" y="-331"/>
@@ -675,7 +668,7 @@ positionBouleBoss = 0</label>
 		<transition>
 			<source ref="id23"/>
 			<target ref="id21"/>
-			<label kind="assignment" x="-170" y="-204">typeAttaque = 2,
+			<label kind="assignment" x="-170" y="-204">typeAttaque = 0,
 t=0,
 positionBouleJoueur = 0,
 positionBouleBoss = 0</label>
@@ -709,7 +702,7 @@ positionJoueur == positionBouleBoss)</label>
 		<transition>
 			<source ref="id22"/>
 			<target ref="id21"/>
-			<label kind="assignment" x="-178" y="102">typeAttaque = 0,
+			<label kind="assignment" x="-178" y="102">typeAttaque = 2,
 t=0,
 positionBouleJoueur = 0,
 positionBouleBoss = 0</label>
@@ -868,7 +861,7 @@ t=0</label>
 	</template>
 	<system>// BdF = 1, bouclier = 2, vol = 3
 
-const int pouvoir = 0;
+const int pouvoir = 3;
 
 Plateau = PlateauJoueur(pouvoir);
 BdfJoueur = PlateauBouleDeFeuJoueur(pouvoir);
@@ -888,12 +881,19 @@ system Plateau, BdfJoueur,  PlateauBouleDeFeuBoss, GestionJoueur;
 			<comment></comment>
 		</query>
 		<query>
+			<formula>E&lt;&gt; GestionJoueur.FinDuJeu and ptVieJoueur&gt;0 and !aSaute</formula>
+			<comment></comment>
+		</query>
+		<query>
+			<formula>E&lt;&gt; GestionJoueur.FinDuJeu and ptVieJoueur==3 and !aSaute</formula>
+			<comment></comment>
+		</query>
+		<query>
 			<formula>E&lt;&gt; GestionJoueur.FinDuJeu and ptVieJoueur==3</formula>
 			<comment></comment>
 		</query>
 		<query>
-			<formula>E&lt;&gt; GestionJoueur.FinDuJeu and ptVieJoueur&gt;0
-</formula>
+			<formula>E&lt;&gt; GestionJoueur.FinDuJeu and ptVieJoueur&gt;0</formula>
 			<comment></comment>
 		</query>
 		<query>
@@ -901,7 +901,7 @@ system Plateau, BdfJoueur,  PlateauBouleDeFeuBoss, GestionJoueur;
 			<comment></comment>
 		</query>
 		<query>
-			<formula>E&lt;&gt; GestionJoueur.FinDuJeu and ptVieJoueur==1</formula>
+			<formula></formula>
 			<comment></comment>
 		</query>
 	</queries>
